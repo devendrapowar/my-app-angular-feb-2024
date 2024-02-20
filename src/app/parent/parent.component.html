@@ -1,0 +1,7 @@
+<p>parent works! {{ childValue }}</p>
+<div class="box">
+  <app-child
+    [parentValue]="value"
+    (childEvent)="onChildEvent($event)"
+  ></app-child>
+</div>

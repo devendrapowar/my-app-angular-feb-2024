@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-between">
+  <h4>Student list</h4>
+  <button class="btn btn-secondary" (click)="goTo()">New</button>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Email</th>
+      <th>Number</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let std of studentList; let i = index">
+      <td>{{ std.name }}</td>
+      <td>{{ std.age }}</td>
+      <td>{{ std.email }}</td>
+      <td>{{ std.number }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="deleteStd(i)">Delete</button>
+        <button class="btn btn-primary ms-2" (click)="goToDetail(std.id)">view</button>
+        <button class="btn btn-primary ms-2" (click)="goToUpdate(std.id)">Update</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
