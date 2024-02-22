@@ -19,7 +19,7 @@
       <td>{{ std.email }}</td>
       <td>{{ std.number }}</td>
       <td>
-        <button class="btn btn-primary" (click)="deleteStd(i)">Delete</button>
+        <button class="btn btn-primary" (click)="deleteStd(std.id)">Delete</button>
         <button class="btn btn-primary ms-2" (click)="goToDetail(std.id)">view</button>
         <button class="btn btn-primary ms-2" (click)="goToUpdate(std.id)">Update</button>
       </td>

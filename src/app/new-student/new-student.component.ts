@@ -33,9 +33,9 @@ export class NewStudentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = Math.floor(Math.random() * 100 + 1).toString();
+    // const id = Math.floor(Math.random() * 100 + 1).toString(); 
     this.studentForm = this.fb.group({
-      id: [id],
+      id: [''],
       name: [
         '',
         [
@@ -58,28 +58,34 @@ export class NewStudentComponent implements OnInit {
       img: ['', [Validators.required]],
     });
     // required, maxlength, minlength, min, max, pattern, type/email4
-    console.log('detail', this.stdDetails);
-    if (this.stdDetails) {
-      this.studentForm.setValue(this.stdDetails);
+    // console.log('detail', this.stdDetails);
+    // if (this.stdDetails) {
+    //   this.studentForm.setValue(this.stdDetails);
 
-      // pathValue
-      // this.studentForm.patchValue({
-      //   img: 'dev'
-      // })
-    }
+    //   // pathValue
+    //   // this.studentForm.patchValue({
+    //   //   img: 'dev'
+    //   // })
+    // }
     console.log('studentForm', this.studentForm);
   }
 
   getDetails(id: string) {
-    this.stdDetails = this.studentService.getStudentDetails(id);
+     this.studentService.getStudentDetails(id).subscribe((res)=>{
+      this.studentForm.setValue(res);
+      this.stdDetails = res;
+     });
   }
   addStudent() {
     const value = this.studentForm.value;
     if (!this.stdDetails) {
-      this.studentService.saveStudentDetails(value);
+      this.studentService.saveStudentDetails(value).subscribe((res)=>{
+        this.router.navigate(['']);
+      });
     } else {
-      this.studentService.updateStudent(value.id, value);
+      this.studentService.updateStudent(value.id, value).subscribe((res)=>{
+        this.router.navigate(['']);
+      })
     }
-    this.router.navigate(['']);
   }
 }
