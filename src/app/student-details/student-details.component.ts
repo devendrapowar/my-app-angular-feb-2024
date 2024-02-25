@@ -21,8 +21,10 @@ export class StudentDetailsComponent {
   constructor(private studentService: StudentService, private router: Router) {}
 
   initStudentDetails(id: string) {
-    this.student = this.studentService.getStudentDetails(id);
-    console.log('data', this.student)
+     this.studentService.getStudentDetails(id).subscribe((res:any)=>{
+      this.student = res;
+      console.log('data', this.student)
+    });
   }
 
   backTo() {

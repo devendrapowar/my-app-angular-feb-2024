@@ -19,12 +19,17 @@ export class StudentComponent implements OnInit{
   }
   
   ngOnInit(): void {
-    this.studentList = this.studentService.students;
+     this.studentService.getStudents().subscribe((res)=>{
+      console.log(res);
+      this.studentList = res;
+     });
   }
 
 
-  deleteStd(index: number) {
-    this.studentList.splice(index, 1);
+  deleteStd(id: string) {
+    this.studentService.deleteStudent(id).subscribe((res)=>{
+      this.studentList = res;
+    })
   }
 
   goTo() {
