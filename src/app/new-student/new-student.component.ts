@@ -80,11 +80,11 @@ export class NewStudentComponent implements OnInit {
     const value = this.studentForm.value;
     if (!this.stdDetails) {
       this.studentService.saveStudentDetails(value).subscribe((res)=>{
-        this.router.navigate(['']);
+        this.router.navigate(['student-list']);
       });
     } else {
       this.studentService.updateStudent(value.id, value).subscribe((res)=>{
-        this.router.navigate(['']);
+        this.router.navigate(['student-list']);
       })
     }
   }

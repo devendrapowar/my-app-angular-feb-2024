@@ -1,9 +1,10 @@
-<app-header></app-header>
+<app-header #appHeader></app-header>
 <div class="container">
-  <app-no-encapsulation></app-no-encapsulation>
+  <!-- <button class="btn btn-primary" (click)="parentClick()">Test</button> -->
+  <!-- <app-no-encapsulation></app-no-encapsulation> -->
   <!-- <app-emulated-encapsulation></app-emulated-encapsulation> -->
   <!-- <app-shadow-dom-encapsulation></app-shadow-dom-encapsulation> -->
-  <!-- <router-outlet></router-outlet> -->
+  <router-outlet></router-outlet>
   <!-- <app-student></app-student> -->
 </div>
-<app-footer></app-footer>
+<app-footer #appFooter></app-footer>

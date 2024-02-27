@@ -2,10 +2,15 @@ import { Routes } from '@angular/router';
 import { StudentComponent } from './student/student.component';
 import { NewStudentComponent } from './new-student/new-student.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
+import { LoginComponent } from './auth/login/login.component';
 
 export const routes: Routes = [
     {
         path: '',
+        component: LoginComponent,
+        title: 'Login'
+    },{
+        path: 'student-list',
         component: StudentComponent,
         title: 'Student List'
     },{
