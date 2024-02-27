@@ -19,7 +19,7 @@
   <tbody>
     <tr *ngFor="let std of studentList; let i = index">
       <td>{{ std.name | reversString }}</td>
-      <td>{{ std.age }}</td>
+      <td>{{ std.age | convertAge:'month'}}</td>
       <td>{{ std.email }}</td>
       <td>{{ std.number | currency:'INR': 'code' }}</td>
       <td>

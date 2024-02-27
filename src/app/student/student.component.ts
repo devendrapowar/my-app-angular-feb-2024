@@ -5,11 +5,12 @@ import { StudentService } from '../services/student.service';
 import { Student } from './model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReversStringPipe } from '../pipes/revers-string.pipe';
+import { ConvertAgePipe } from '../pipes/convert-age.pipe';
 
 @Component({
   selector: 'app-student',
   standalone: true,
-  imports: [NgFor, FormsModule, CurrencyPipe, UpperCasePipe, LowerCasePipe, ReversStringPipe],
+  imports: [NgFor, FormsModule, CurrencyPipe, UpperCasePipe, LowerCasePipe, ReversStringPipe, ConvertAgePipe],
   templateUrl: './student.component.html',
   styleUrl: './student.component.scss',
 })
