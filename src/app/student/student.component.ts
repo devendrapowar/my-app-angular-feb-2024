@@ -16,7 +16,8 @@ import { ConvertAgePipe } from '../pipes/convert-age.pipe';
 })
 export class StudentComponent implements OnInit{
   public studentList!: Student[];
-  public search: string = 'dev';
+  public filteredList!: Student[]
+  public search: string = '';
 
   constructor(private studentService: StudentService, private router: Router) {  
   }
@@ -25,7 +26,16 @@ export class StudentComponent implements OnInit{
      this.studentService.getStudents().subscribe((res)=>{
       console.log(res);
       this.studentList = res;
+      this.searchByName()
      });
+  }
+
+  searchByName() {
+    console.log(this.search)
+    this.filteredList = this.studentList.filter((std)=>{
+        return std.name?.toLowerCase().includes(this.search?.toLowerCase())
+    })
+    console.log(this.filteredList);
   }
 
 

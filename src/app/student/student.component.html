@@ -3,8 +3,8 @@
   <button class="btn btn-secondary" (click)="goTo()">New</button>
 </div>
 <div class="mb-3">
-  <label for="search" class="form-label">Image</label>
-  <input type="text" class="form-control" id="search" placeholder="Search by namr" [(ngModel)]="search" />
+  <label for="search" class="form-label">Search</label>
+  <input type="text" class="form-control" id="search" placeholder="Search by name" [(ngModel)]="search" (input)="searchByName()"/>
 </div>
 <table class="table">
   <thead>
@@ -17,8 +17,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let std of studentList; let i = index">
-      <td>{{ std.name | reversString }}</td>
+    <tr *ngFor="let std of filteredList; let i = index">
+      <td>{{ std.name  }}</td>
       <td>{{ std.age | convertAge:'month'}}</td>
       <td>{{ std.email }}</td>
       <td>{{ std.number | currency:'INR': 'code' }}</td>
