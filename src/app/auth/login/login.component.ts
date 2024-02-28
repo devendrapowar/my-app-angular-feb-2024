@@ -24,7 +24,7 @@ export class LoginComponent {
     console.log(this.user, token);
     localStorage.setItem('token', token)
     localStorage.setItem('user', this.user.toString())
-    this.router.navigate(['student-list']);
+    this.router.navigate(['pages/student-list']);
   }
 
 }

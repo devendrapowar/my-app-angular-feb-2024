@@ -47,15 +47,15 @@ export class StudentComponent implements OnInit{
 
   goTo() {
     console.log(this.search);
-    this.router.navigate(['new-student']);
+    this.router.navigate(['pages/new-student']);
   }
 
   goToDetail(id: string) {
-    this.router.navigate(['view-student', id]);
+    this.router.navigate(['pages/view-student', id]);
   }
 
   goToUpdate(id: string) {
-    this.router.navigate(['update-student', id]);
+    this.router.navigate(['pages/update-student', id]);
   }
 
 }

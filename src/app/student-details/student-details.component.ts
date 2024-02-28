@@ -28,7 +28,7 @@ export class StudentDetailsComponent {
   }
 
   backTo() {
-    this.router.navigate(['student-list'])
+    this.router.navigate(['pages/student-list'])
   }
 
 }
